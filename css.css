@@ -1,0 +1,15 @@
+.div-table{
+    margin-top: 5%;
+    margin-right: 2%;
+    width: 70%;
+    float: right;
+}
+
+.form{
+    float: left;
+    margin-top: 5%;
+    margin-left: 8%;
+    background-color: lightcyan;
+    padding: 25px 25px 25px 25px;
+    border-radius: 25px;
+}
