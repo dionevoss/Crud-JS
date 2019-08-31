@@ -1,32 +1,52 @@
 <!DOCTYPE html>
+<html>
+
     <head>
-        <meta charset="utf-8">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Crud JS</title>
         <link rel="stylesheet" href="css.css">
     </head>
+    
     <body>
         <div class="form">
             <center><h3>Adicionar Produto:</h3></center><br><br>
-            <form method="POST" action="pqp.html" id="form" onsubmit="event.preventDefault();">
-                <label>Nome:</label><br>
-                <input name="nome" class="form-control form-control-lg" type="text"><br>
-                <label>Descrição:</label><br>
-                <textarea name="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea><br>
-                <label>Estoque:</label><br>
-                <input name="estoque" class="form-control" type="number" id="example-number-input"><br>
-                <label>Preço:</label><br>
-                <input name="preco" class="form-control" type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="c1" /><br>
-                <label>Origem:</label><br>
-                <input name="origem" class="form-control form-control-lg" type="text"><br><br>
-                <input type="submit" class="btn-success">Enviar</input>
+            <form onsubmit="event.preventDefault();onFormSubmit();">
+                <div>
+                    <label>Nome:</label><label class="validation-error hide" id="nomeValidationError">This field is required.</label>
+                    <br>
+                    <input id="nome" name="nome" class="form-control form-control-lg" type="text"><br>
+                </div>
+
+                <div>
+                    <label>Descrição:</label><br>
+                    <textarea id="descricao" name="descricao" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+                </div>
+
+                <div>
+                    <label>Estoque:</label><br>
+                    <input id="estoque" name="estoque" class="form-control" type="number" id="example-number-input"><br>
+                </div>
+
+                <div>
+                    <label>Preço:</label><br>
+                    <input id="preco" name="preco" class="form-control" type="number" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="c1" /><br>
+                </div>
+
+                <div>
+                    <label>Origem:</label><br>
+                    <input id="origem" name="origem" class="form-control form-control-lg" type="text"><br><br>
+                </div>
+
+                <div class="form-action-buttons">
+                    <input type="submit" value="Enviar">
+                </div>
+                
             </form>
         </div>
         <div class="div-table">
-            <table class="table">
+            <table class="table" id="listaprodutos">
                     <thead class="thead-dark">
                       <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Descrição</th>
                         <th scope="col">Qtd Estoque</th>
@@ -36,7 +56,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <!--<tr>
                         <th scope="row">1</th>
                         <td>Bala de Menta</td>
                         <td>Tem um sabor como de hortelã.</td>
@@ -66,7 +86,7 @@
                                 <td>Garoto</td>
                                 <td><button class="btn-danger">Excluir</button>
                                     <button class="btn-warning">Editar</button></td>
-                              </tr>
+                              </tr>-->
                     </tbody>
                   </table>
         </div>
@@ -77,20 +97,7 @@
 
 
 
-        <script>
-        function pegarDados() {
-            var dados = {};
-            dados = ["nome"] = document.getElementById("nome").value;
-            dados = ["descricao"] = document.getElementById("descricao").value;
-            dados = ["estoque"] = document.getElementById("estoque").value;
-            dados = ["preco"] = document.getElementById("preco").value;
-            dados = ["origem"] = document.getElementById("origem").value;
-
-            return dados;
-        }
-        
-        
-        
+        <script src="script.js">
         </script>
     </body>
 </html>
